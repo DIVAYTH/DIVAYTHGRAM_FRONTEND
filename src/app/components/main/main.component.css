@@ -1,0 +1,364 @@
+.mainContainer {
+  box-shadow: 10px 5px 5px whitesmoke;
+  width: 85vw;
+  height: 85vh;
+  border: 1px solid whitesmoke;
+  animation-name: Main;
+  animation-duration: 1.5s;
+}
+
+.container {
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  width: auto;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid whitesmoke;
+  position: relative;
+  overflow: hidden;
+}
+
+.direction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: gray;
+  transition: 0.5s;
+  height: 100%;
+}
+
+.direction img {
+  cursor: pointer;
+  width: 60%;
+  height: 60%;
+}
+
+.direction:hover {
+  background: whitesmoke;
+  transition: 0.5s;
+}
+
+.listStories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  transition: 0.5s all ease-out;
+}
+
+.stories {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.stories img {
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fde910;
+  box-shadow: 0 0 7px gray;
+}
+
+.stories img:hover {
+  border: 2px solid white;
+  box-shadow: 0 0 7px #fde910;
+}
+
+.watchStories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  height: 82%;
+  width: 100%;
+}
+
+.directionStories {
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: gray;
+}
+
+.directionStories img {
+  cursor: pointer;
+  height: 90px;
+  width: 60px;
+}
+
+.directionStories:hover {
+  background: whitesmoke;
+  transition: 0.5s;
+}
+
+.menu {
+  height: 100%;
+  border: 3px solid whitesmoke;
+}
+
+.watch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+  height: 92%;
+  width: 100%;
+}
+
+.imgContainer {
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.statusStories {
+  display: flex;
+  height: 8%;
+  width: auto;
+  background: white;
+}
+
+.likeDislike {
+  width: 30%;
+  height: 100%;
+}
+
+.emoji {
+  width: 70%;
+  height: 100%;
+}
+
+.emoji div,
+.likeDislike div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.emoji div {
+  justify-content: right;
+}
+
+.likeDislike img,
+.emoji img {
+  cursor: pointer;
+  margin: auto 2% auto 2%;
+}
+
+.likeDislike label {
+  margin-right: 10%;
+}
+
+.emoji label {
+  margin-right: 5%;
+}
+
+.emoji img:hover {
+  animation-name: Emoji;
+  animation-duration: 8s ;
+  animation-iteration-count: infinite;
+}
+
+.likeDislike img:hover {
+  animation-name: LikeDislike;
+  animation-duration:  2s;
+  animation-iteration-count: infinite;
+}
+
+.text {
+  position: absolute;
+  word-wrap: break-word;
+  max-width: 90%;
+  white-space: normal;
+}
+
+.watch img {
+  height: 100%;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+@keyframes LikeDislike {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes Emoji {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-45deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  30% {
+    transform: rotate(-45deg);
+  }
+  40% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  60% {
+    transform: rotate(45deg);
+  }
+  70% {
+    transform: rotate(-45deg);
+  }
+  80% {
+    transform: rotate(45deg);
+  }
+  90% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes Main {
+  0% {
+    margin-left: 100%;
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1247px) {
+  .list {
+    width: 92%;
+  }
+
+  .direction {
+    width: 3%;
+  }
+
+  .directionStories {
+    width: 3%;
+    height: 20%;
+  }
+
+  .likeDislike img,
+  .emoji img {
+    height: 35px;
+    width: 35px;
+  }
+
+  .imgContainer {
+    height: 100%;
+  }
+
+  .menu {
+    width: 40%;
+  }
+
+  .text {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 1247px) {
+  .list {
+    width: 84%;
+  }
+
+  .direction {
+    width: 7%;
+  }
+
+  .directionStories {
+    width: 5%;
+    height: 20%;
+  }
+
+  .likeDislike img,
+  .emoji img {
+    height: 25px;
+    width: 25px;
+  }
+
+  .menu {
+    width: 80%;
+  }
+
+  .imgContainer {
+    height: auto;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+
+}
+
+@media screen and (max-width: 560px) {
+  .list {
+    width: 80%;
+  }
+
+  .direction {
+    width: 10%;
+  }
+
+  .directionStories {
+    width: 6%;
+  }
+
+  .directionStories img {
+    height: 60px;
+    width: 30px;
+  }
+
+  .menu {
+    width: 80%;
+  }
+
+  .imgContainer {
+    height: auto;
+  }
+
+  .likeDislike img,
+  .emoji img {
+    height: 15px;
+    width: 15px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+}

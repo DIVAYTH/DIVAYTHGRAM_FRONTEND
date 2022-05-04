@@ -1,0 +1,83 @@
+<div class="account">
+  <div class="info">
+    <div>
+      <img [src]="avaUrl">
+    </div>
+    <div>
+      <span>{{getLogin()}}</span>
+    </div>
+  </div>
+  <div class="storiesContainer">
+    <div class="addImg">
+      <input #file id="upload" multiple accept="image/*,image/jpeg" type="file" name="file" class="custom-file-input"
+             (change)="changePhoto(file.files)">
+    </div>
+    <div class="stories" >
+      <div class="imgContainer">
+        <img #block [src]="storiesUrl">
+        <div #textStories class="text" cdkDragBoundary=".imgContainer" cdkDrag [style.color]="color"
+             [style.font-family]="style" >{{text}}</div>
+      </div>
+    </div>
+    <div class="addStories">
+      <button (click)="createStories()">Publish</button>
+    </div>
+    <div class="infoRequest">
+      <span [style.color]="colorRequest">{{infoRequest}}</span>
+    </div>
+  </div>
+  <div class="redactor">
+    <h3>Editor</h3>
+    <h4>Text: </h4>
+    <textarea [(ngModel)]="text" maxlength="80" placeholder="Your story text ..." [disabled]="ready"></textarea>
+    <h4>Color: </h4>
+    <div *ngIf="ready" class="colors">
+      <div *ngIf="ready" style="background: whitesmoke;cursor:default"></div>
+      <div *ngIf="ready" style="background: whitesmoke;cursor:default"></div>
+      <div *ngIf="ready" style="background: whitesmoke;cursor:default"></div>
+      <div *ngIf="ready" style="background: whitesmoke;cursor:default"></div>
+      <div *ngIf="ready" style="background: whitesmoke;cursor:default"></div>
+    </div>
+    <div class="colors" *ngIf="!ready">
+      <div *ngIf="color == 'red'" style="background: red; width: 45px;height: 45px; border-radius: 45px"
+           (click)="setColor('red')"></div>
+      <div *ngIf="color != 'red'" style="background: red" (click)="setColor('red')"></div>
+      <div *ngIf="color == 'white'" style="background: white; width: 45px;height: 45px; border-radius: 45px"
+           (click)="setColor('white')"></div>
+      <div *ngIf="color != 'white'" style="background: white" (click)="setColor('white')"></div>
+      <div *ngIf="color == 'blue'" style="background: blue; width: 45px;height: 45px; border-radius: 45px"
+           (click)="setColor('blue')"></div>
+      <div *ngIf="color != 'blue'" style="background: blue" (click)="setColor('blue')"></div>
+      <div *ngIf="color == 'green'" style="background: green; width: 45px;height: 45px; border-radius: 45px"
+           (click)="setColor('green')"></div>
+      <div *ngIf="color != 'green'" style="background: green" (click)="setColor('green')"></div>
+      <div *ngIf="color == 'black'" style="background: black; width: 45px;height: 45px; border-radius: 45px"
+           (click)="setColor('black')"></div>
+      <div *ngIf="color != 'black'" style="background: black" (click)="setColor('black')"></div>
+    </div>
+    <h4>Style: </h4>
+    <div style="text-align: left; margin-left: 20%">
+      <mat-radio-group [(ngModel)]="style" [disabled]="ready">
+        <mat-radio-button value="Times New Roman, serif" color="primary"
+                          style="font-family: Times New Roman, serif;margin-bottom: 2%">
+          Example of your story text...
+        </mat-radio-button>
+        <br>
+        <mat-radio-button value="cursive, serif" color="primary"
+                          style="font-family: cursive, serif;margin-bottom: 2%">
+          Example of your story text...
+        </mat-radio-button>
+        <br>
+        <mat-radio-button value="monospace, serif" color="primary"
+                          style="font-family: monospace, serif;margin-bottom: 2%">
+          Example of your story text...
+        </mat-radio-button>
+        <br>
+        <mat-radio-button value="fantasy, serif" color="primary"
+                          style="font-family: fantasy, serif;margin-bottom: 2%">
+          Example of your story text...
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+</div>

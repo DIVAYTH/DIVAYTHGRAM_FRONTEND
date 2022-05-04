@@ -1,0 +1,59 @@
+<div class="mainContainer">
+  <div class="container">
+    <div class="direction">
+      <img src="../../../assets/left.png" (click)="scroll(-1)">
+    </div>
+    <div #list class="list">
+      <div #listStories class="listStories">
+        <div class="stories" *ngFor="let user of users">
+          <img src="data:image/jpeg;base64,{{user.Picture}}" (click)="getStories(user.Login)">
+        </div>
+      </div>
+    </div>
+    <div class="direction" (click)="scroll(1)">
+      <img src="../../../assets/right.png">
+    </div>
+  </div>
+  <div class="watchStories" *ngIf="stories != null">
+    <div class="directionStories" (click)="swapLeft()">
+      <img src="../../../assets/left.png">
+    </div>
+    <div class="menu">
+      <div class="watch">
+        <div class="imgContainer">
+          <img #img [src]='"data:image/jpeg;base64," + stories[index].Story' (load)="animation()">
+          <div #text *ngIf="stories[index].Text != '' && stories != null" [style.color]="stories[index].Color"
+               [style.Top]="stories[index].Y" [style.Left]="stories[index].X"
+               [style.font-family]="stories[index].Style" class="text">{{stories[index].Text}}
+          </div>
+        </div>
+      </div>
+      <div class="statusStories">
+        <div class="likeDislike">
+          <div>
+            <img (click)="setLikeOrDislike(true, false)" [src]="checkLike()"/>
+            <label>{{stories[index].Like}}</label>
+            <img (click)="setLikeOrDislike(false, true)" [src]="checkDislike()"/>
+            <label>{{stories[index].Dislike}}</label>
+          </div>
+        </div>
+        <div class="emoji">
+          <div>
+            <img (click)="setEmoji(true, false, false, false)" src="assets/HAHA.png"/>
+            <label>{{stories[index].EmojiHaha}}</label>
+            <img (click)="setEmoji(false, true, false, false)" src="assets/zzz.png"/>
+            <label>{{stories[index].EmojiZzz}}</label>
+            <img (click)="setEmoji(false, false, true, false)" src="assets/who.png"/>
+            <label>{{stories[index].EmojiWho}}</label>
+            <img (click)="setEmoji(false, false, false, true)" src="assets/rvota.png"/>
+            <label>{{stories[index].EmojiRvota}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="directionStories" (click)="swapRight()">
+      <img src="../../../assets/right.png">
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="header" *ngIf="getUserStatus() == true">
+  <span (click)="home()">DIVAYTHGRAM</span>
+  <div>
+    <button class="secondButton" (click)="openModalAuthorization()">Sign in</button>
+    <button class="firsButton" (click)="openModalRegistration()">Sign up</button>
+  </div>
+</div>
+<div class="header" *ngIf="getUserStatus() == false">
+  <span (click)="home()">DIVAYTHGRAM</span>
+  <div>
+    <button class="firsButton" (click)="navigate()">{{getButton()}}</button>
+    <button class="secondButton" (click)="logout()">Exit</button>
+  </div>
+</div>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+<div class="footer">
+</div>
